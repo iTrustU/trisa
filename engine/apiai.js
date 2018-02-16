@@ -1,4 +1,5 @@
 const apiai = require('apiai');
+
 const app = apiai(process.env.APIAI);
 
 const getApiai = ((sessionId, message) => {
