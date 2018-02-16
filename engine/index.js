@@ -68,18 +68,21 @@ const findAlgolia = (parameters) => {
   return new Promise((res,rej) => {
     return index.search(getParam(parameters), function(err, content) {
       if (err) {
+        console.log(err)
         rej(err)
+      } else {
+        const output = content.hits.map(hit => {
+          return {
+            id:hit.id,
+            rating:hit['profile.finalRating'],
+            picture:hit['profile.profilePicture'],
+            name:hit['profile.name'],
+            city:hit['profile.city'],
+            company:hit['insuranceCompany.name']
+          }
+        })
+        res(output)
       }
-      const output = content.hits.map(hit => {
-        return {
-          id:hit.id,
-          picture:hit['profile.profilePicture'],
-          name:hit['profile.name'],
-          city:hit['profile.city'],
-          company:hit['insuranceCompany.name']
-        }
-      })
-      res(output)
     })
   })
 }

@@ -20,6 +20,7 @@ bot.on('message', (msg) => {
                 reply.data.forEach(message => {
                   bot.sendPhoto(chatId,message.picture,{
                     caption:`name:${message.name}
+rating:${message.rating}
 company:${message.company}
 city:${message.city}
 profile:https://itrustu-a10b5.firebaseapp.com/profile/${message.id}
