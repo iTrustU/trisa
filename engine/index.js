@@ -1,4 +1,5 @@
 const apiaiParameter = require('./apiai')
+require('dotenv').config();
 const axios = require('axios')
 const algoliasearch = require('algoliasearch')
 const client = algoliasearch(process.env.ALGOLIA_ID, process.env.ALGOLIA_TOKEN)

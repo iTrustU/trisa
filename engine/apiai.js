@@ -1,4 +1,5 @@
 const apiai = require('apiai');
+require('dotenv').config();
 
 const app = apiai(process.env.APIAI);
 
