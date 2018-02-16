@@ -13,12 +13,19 @@ const bot = new TelegramBot(token, { polling: true });
 bot.on('message', (msg) => {
     const chatId = msg.chat.id;
     engine(msg.chat.id, msg.text).then(data => {
-        console.log(data)
         data.forEach(reply => {
             if (reply.type === 'text') {
                 bot.sendMessage(chatId, reply.data);
             } else {
-
+                reply.data.forEach(message => {
+                  bot.sendPhoto(chatId,message.picture,{
+                    caption:`name:${message.name}
+company:${message.company}
+city:${message.city}
+profile:https://itrustu-a10b5.firebaseapp.com/profile/${message.id}
+                    `
+                  })
+                })
             }
         });
     }).catch(err => {

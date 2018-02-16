@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/iTrustU/trisa#readme",
   "dependencies": {
+    "algolia": "0.0.0",
+    "algoliasearch": "^3.24.11",
     "apiai": "^4.0.3",
     "axios": "^0.17.1",
     "body-parser": "^1.18.2",
