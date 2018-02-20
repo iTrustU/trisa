@@ -74,6 +74,7 @@ router.post('/local', function(req, res) {
 router.post('/line', function(req, res) {
 	req.body.events.forEach(event => {
 		const { replyToken, source, message } = event
+		console.log(replyToken,source,message)
 		if (message.type === 'text' ) {
 			engine(source.userId, message.text)
 				.then(data => {
@@ -85,16 +86,6 @@ router.post('/line', function(req, res) {
 				})
 		}
 	})
-	// engine(id, message)
-	// 	.then(data => {
-	// 		const sendData = data.map(message => {
-	// 			message.sender = 'bot'
-	// 			return message
-	// 		})
-	// 	})
-	// 	.catch(err => {
-	// 		console.log(err)
-	// 	})
 })
 
 
